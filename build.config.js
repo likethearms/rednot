@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
@@ -20,7 +19,6 @@ module.exports = {
 
   module: {
     rules: [
-
       // we use babel-loader to load our jsx and tsx files
       {
         test: /\.(ts|js)x?$/,
@@ -29,7 +27,6 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-
       // css-loader to bundle all the css files into one file
       // and style-loader to add all the styles  inside the style tag of the document
       {
@@ -38,9 +35,4 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-  ],
 };
