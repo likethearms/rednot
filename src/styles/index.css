@@ -1,4 +1,26 @@
-h1 {
-    color: #292727;
-    text-align: center;
+.rednot-enter {
+  opacity: 0;
+}
+
+.rednot-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.rednot-exit {
+  opacity: 1;
+}
+
+.rednot-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
+.rednot--container {
+  position: absolute;
+  top: 0;
+  padding: 20px;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
 }

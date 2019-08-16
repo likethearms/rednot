@@ -2,7 +2,7 @@
   "name": "rednot",
   "version": "0.1.0",
   "description": "Redux notification system",
-  "main": "src/index.tsx",
+  "main": "dist/bundle.js",
   "scripts": {
     "bundle": "webpack",
     "lint": "eslint . --ext .js,.tsx,.ts",
@@ -26,6 +26,8 @@
     "@babel/preset-typescript": "^7.3.3",
     "@types/react": "^16.9.1",
     "@types/react-dom": "^16.8.5",
+    "@types/react-redux": "^7.1.2",
+    "@types/react-transition-group": "^4.2.2",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "babel-loader": "^8.0.6",
@@ -40,11 +42,15 @@
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.8.0"
-  },
-  "dependencies": {},
-  "peerDependencies": {
+    "webpack-dev-server": "^3.8.0",
+    "redux-devtools-extension": "^2.13.8",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
-  }
+    "react-dom": "^16.0.0",
+    "prop-types": "^15.7.2",
+    "react-redux": "^7.1.0",
+    "react-transition-group": "^4.2.2"
+  },
+  "dependencies": {}
 }

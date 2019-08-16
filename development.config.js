@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); /* eslint-disable-line
 module.exports = {
 
   // webpack will take the files from ./src/index
-  entry: './src/demo',
+  entry: './src/demo/demo',
 
   // and output it into /dist as bundle.js
   output: {
@@ -38,7 +38,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/demo/index.html',
     }),
   ],
 };
