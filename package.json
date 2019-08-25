@@ -1,6 +1,6 @@
 {
   "name": "rednot",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "Redux notification system",
   "main": "dist/main.js",
   "scripts": {
@@ -19,6 +19,7 @@
   ],
   "author": "Henrik Salmela <henrik.salmela@gmail.com>",
   "license": "MIT",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
