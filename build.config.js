@@ -1,4 +1,5 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
 
@@ -10,7 +11,7 @@ module.exports = {
     path: path.join(__dirname, '/dist'),
     library: 'index.js',
     libraryTarget: 'commonjs2',
-    // filename: 'index.js',
+    // umdNamedDefine: true,
   },
 
   // adding .ts and .tsx to resolve.extensions
@@ -18,7 +19,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
-
+  externals: [nodeExternals()],
   module: {
     rules: [
       // we use babel-loader to load our jsx and tsx files

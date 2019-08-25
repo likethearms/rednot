@@ -1,8 +1,8 @@
 {
   "name": "rednot",
-  "version": "0.1.4",
+  "version": "0.1.15",
   "description": "Redux notification system",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "bundle": "webpack",
     "lint": "eslint . --ext .js,.tsx,.ts",
@@ -17,6 +17,16 @@
   ],
   "author": "Henrik Salmela <henrik.salmela@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-transition-group": "^4.2.2"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-transition-group": "^4.2.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -38,19 +48,16 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "html-webpack-plugin": "^3.2.0",
+    "prop-types": "^15.7.2",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "style-loader": "^1.0.0",
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0",
-    "redux-devtools-extension": "^2.13.8",
-    "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "prop-types": "^15.7.2",
-    "react-redux": "^7.1.0",
-    "react-transition-group": "^4.2.2"
-  },
-  "dependencies": {}
+    "webpack-node-externals": "^1.7.2"
+  }
 }
