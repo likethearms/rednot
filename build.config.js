@@ -8,7 +8,9 @@ module.exports = {
   // and output it into /dist as bundle.js
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js',
+    library: 'index.js',
+    libraryTarget: 'commonjs2',
+    // filename: 'index.js',
   },
 
   // adding .ts and .tsx to resolve.extensions
