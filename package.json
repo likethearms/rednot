@@ -1,6 +1,6 @@
 {
   "name": "rednot",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "Redux notification system",
   "main": "dist/main.js",
   "scripts": {
