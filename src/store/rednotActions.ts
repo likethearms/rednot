@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { Notification } from './Notification';
+import Notification from './Notification';
 
 export const NOTIF_SEND = 'NOTIF_SEND';
 export const NOTIF_DISMISS = 'NOTIF_DISMISS';
@@ -12,9 +12,7 @@ export const NOTIF_CLEAR = 'NOTIF_CLEAR';
  */
 export function notifSend(notif: Notification) {
   const payload = notif;
-  if (!payload.id) {
-    payload.id = new Date().getTime();
-  }
+  if (!payload.id) payload.id = new Date().getTime();
   return (dispatch: Dispatch) => {
     dispatch({ type: NOTIF_SEND, payload });
 
