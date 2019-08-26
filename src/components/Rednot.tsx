@@ -6,7 +6,7 @@ import Notification from '../store/Notification';
 
 interface Props {
   notifications: Notification[]
-  componentClassName?: 'rednot',
+  componentClassName?: string,
   CustomComponent?: any,
   timeout: 600,
 }
@@ -17,7 +17,7 @@ const Rednot = (props: Props) => {
   } = props;
   const renderedNotifications = notifications.map((n: Notification) => {
     let innerComponent = (
-      <div className={n.className}>
+      <div className={n.className || 'rednot--notification'}>
         {n.message}
       </div>
     );
@@ -63,8 +63,8 @@ Rednot.propTypes = {
   timeout: PropTypes.number,
 };
 
-const mapStateToProps = (state: any) => ({
-  notifications: state.get ? state.get('rednot') : state.rednot,
+export const mapStateToProps = (state: any) => ({
+  notifications: state.rednot,
 });
 
 export default connect(mapStateToProps)(Rednot as any);
