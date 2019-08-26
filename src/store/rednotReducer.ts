@@ -1,12 +1,13 @@
 import { NOTIF_SEND, NOTIF_DISMISS, NOTIF_CLEAR } from './rednotActions';
+import Notification from './Notification';
 
-export default function notifs(domain = [], action: any): any {
+export default function notifs(domain: Notification[] = [], action: any): any {
   if (!action || !action.type) return domain;
   switch (action.type) {
     case NOTIF_SEND:
       return [action.payload, ...domain.filter(({ id }) => id !== action.payload.id)];
     case NOTIF_DISMISS:
-      return domain.filter((notif: any) => notif.id !== action.payload);
+      return domain.filter((notif: Notification) => notif.id !== action.payload);
     case NOTIF_CLEAR:
       return [];
     default:
