@@ -1,3 +1,3 @@
-export * from './store/rednotActions';
-export { default as rednotReducer } from './store/rednotReducer';
 export { default as Rednot } from './components/Rednot';
+export * from './store/RednotAction';
+export { default as rednotReducer } from './store/rednotReducer';

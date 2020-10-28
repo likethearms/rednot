@@ -1,5 +1,5 @@
-import { NOTIF_SEND, NOTIF_DISMISS, NOTIF_CLEAR } from './rednotActions';
 import Notification from './Notification';
+import { NOTIF_CLEAR, NOTIF_DISMISS, NOTIF_SEND } from './RednotAction';
 
 export default function notifs(domain: Notification[] = [], action: any): any {
   if (!action || !action.type) return domain;

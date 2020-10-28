@@ -1,5 +1,5 @@
+import { NOTIF_CLEAR, NOTIF_DISMISS, NOTIF_SEND } from './RednotAction';
 import rednotReducer from './rednotReducer';
-import { NOTIF_SEND, NOTIF_DISMISS, NOTIF_CLEAR } from './rednotActions';
 
 const payload = {
   id: 1,
