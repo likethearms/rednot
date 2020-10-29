@@ -4,12 +4,19 @@ import { RednotAction } from '../index';
 
 class App extends React.PureComponent<any> {
   render() {
-    const { showMessage } = this.props;
+    const { showMessage, showCustomMessage, showSuccessMessage } = this.props;
+
     return (
       <div>
         <h1>Hello World!</h1>
         <button type="button" onClick={showMessage}>
-          click
+          showMessage
+        </button>
+        <button type="button" onClick={showCustomMessage}>
+          showCustomMessage
+        </button>
+        <button type="button" onClick={showSuccessMessage}>
+          showSuccessMessage
         </button>
       </div>
     );
@@ -29,6 +36,7 @@ const mapDispatchToProps = (dispatch: any) => ({
       })
     ),
   showCustomMessage: () => dispatch(RednotAction.notifSend({ message: text, dismissAfter: 5000 })),
+  showSuccessMessage: () => dispatch(RednotAction.success(text)),
 });
 
 export default connect(null, mapDispatchToProps)(App);

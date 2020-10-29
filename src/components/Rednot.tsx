@@ -1,38 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Notification from '../store/Notification';
 
 interface Props {
-  notifications: Notification[]
-  componentClassName?: string,
-  CustomComponent?: any,
-  timeout: 600,
+  componentClassName?: string;
+  CustomComponent?: any;
+  timeout: 600;
 }
 
-const Rednot = (props: Props) => {
-  const {
-    notifications, componentClassName, timeout, CustomComponent,
-  } = props;
+const Rednot = (props: Props): JSX.Element => {
+  const { componentClassName, timeout, CustomComponent } = props;
+
+  const notifications = useSelector((state: any) => state.rednot);
+
   const renderedNotifications = notifications.map((n: Notification) => {
-    let innerComponent = (
-      <div className={n.className || 'rednot--notification'}>
-        {n.message}
-      </div>
-    );
+    let innerComponent = <div className={n.className || 'rednot--notification'}>{n.message}</div>;
     if (CustomComponent) {
-      innerComponent = (
-        <CustomComponent notification={n} />
-      );
+      innerComponent = <CustomComponent notification={n} />;
     }
     return (
-      <CSSTransition
-        in
-        key={n.id}
-        classNames={componentClassName}
-        timeout={timeout}
-      >
+      <CSSTransition in key={n.id} classNames={componentClassName} timeout={timeout}>
         {innerComponent}
       </CSSTransition>
     );
@@ -40,9 +29,7 @@ const Rednot = (props: Props) => {
 
   return (
     <div className={`${componentClassName}--container`}>
-      <TransitionGroup>
-        {renderedNotifications}
-      </TransitionGroup>
+      <TransitionGroup>{renderedNotifications}</TransitionGroup>
     </div>
   );
 };
@@ -55,16 +42,8 @@ Rednot.defaultProps = {
 
 Rednot.propTypes = {
   componentClassName: PropTypes.string,
-  CustomComponent: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.node,
-    PropTypes.element,
-  ]),
+  CustomComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.node, PropTypes.element]),
   timeout: PropTypes.number,
 };
 
-export const mapStateToProps = (state: any) => ({
-  notifications: state.rednot,
-});
-
-export default connect(mapStateToProps)(Rednot as any);
+export default Rednot;

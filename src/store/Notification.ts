@@ -1,7 +1,7 @@
 interface Notification {
   message: string;
   id?: number;
-  className?: string,
+  className?: string;
   dismissAfter?: number;
 }
 

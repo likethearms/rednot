@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import App from './App';
+import thunk from 'redux-thunk';
+import { Rednot, rednotReducer } from '../index';
 import '../styles/index.css';
-import { rednotReducer, Rednot } from '../index';
+import App from './App';
 
-const store = createStore(combineReducers({ rednot: rednotReducer }),
-  composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(
+  combineReducers({ rednot: rednotReducer }),
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
-ReactDOM.render((
+ReactDOM.render(
   <Provider store={store}>
     <App />
     <Rednot />
-  </Provider>
-), document.getElementById('root'));
+  </Provider>,
+  document.getElementById('root')
+);
