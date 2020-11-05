@@ -1,8 +1,8 @@
 {
   "name": "rednot",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "description": "Redux notification system",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
   "scripts": {
     "bundle": "webpack",
     "lint": "eslint src --ext .js,.tsx,.ts",
