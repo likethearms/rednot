@@ -1,6 +1,6 @@
 {
   "name": "rednot",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "description": "Redux notification system",
   "main": "dist/main.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "lint": "eslint src --ext .js,.tsx,.ts",
     "test": "jest src",
     "start": "webpack-dev-server --config development.config.js --mode development --open --hot",
-    "build": "rm -rf dist && tsc --project tsconfig.typing.json && webpack --config build.config.js --mode production",
+    "build": "rm -rf dist && tsc --project tsconfig.json && tsc --project tsconfig.typing.json",
     "prepublish": "npm run build",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
   },

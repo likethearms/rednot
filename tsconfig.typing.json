@@ -9,9 +9,5 @@
     "allowJs": false,
     "emitDeclarationOnly": true
   },
-  "exclude": [
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "setupTests.ts"
-  ]
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "setupTests.ts", "./src/demo"]
 }
