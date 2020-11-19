@@ -14,9 +14,11 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-    <Rednot />
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+      <Rednot />
+    </Provider>
+  </React.StrictMode>,
   document.getElementById('root')
 );

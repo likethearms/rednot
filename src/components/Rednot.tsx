@@ -11,17 +11,29 @@ interface Props {
 }
 
 const Rednot = (props: Props): JSX.Element => {
+  const nodeRef = React.useRef(null);
+
   const { componentClassName, timeout, CustomComponent } = props;
 
   const notifications = useSelector((state: any) => state.rednot);
 
   const renderedNotifications = notifications.map((n: Notification) => {
-    let innerComponent = <div className={n.className || 'rednot--notification'}>{n.message}</div>;
+    let innerComponent = (
+      <div ref={nodeRef} className={n.className || 'rednot--notification'}>
+        {n.message}
+      </div>
+    );
     if (CustomComponent) {
-      innerComponent = <CustomComponent notification={n} />;
+      innerComponent = <CustomComponent ref={nodeRef} notification={n} />;
     }
     return (
-      <CSSTransition in key={n.id} classNames={componentClassName} timeout={timeout}>
+      <CSSTransition
+        nodeRef={nodeRef}
+        in
+        key={n.id}
+        classNames={componentClassName}
+        timeout={timeout}
+      >
         {innerComponent}
       </CSSTransition>
     );
