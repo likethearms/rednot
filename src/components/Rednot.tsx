@@ -7,7 +7,7 @@ import Notification from '../store/Notification';
 interface Props {
   componentClassName?: string;
   CustomComponent?: any;
-  timeout: 600;
+  timeout: number;
 }
 
 const Rednot = (props: Props): JSX.Element => {
@@ -18,13 +18,9 @@ const Rednot = (props: Props): JSX.Element => {
   const notifications = useSelector((state: any) => state.rednot);
 
   const renderedNotifications = notifications.map((n: Notification) => {
-    let innerComponent = (
-      <div ref={nodeRef} className={n.className || 'rednot--notification'}>
-        {n.message}
-      </div>
-    );
+    let innerComponent = <div className={n.className || 'rednot--notification'}>{n.message}</div>;
     if (CustomComponent) {
-      innerComponent = <CustomComponent ref={nodeRef} notification={n} />;
+      innerComponent = <CustomComponent notification={n} />;
     }
     return (
       <CSSTransition
@@ -32,9 +28,9 @@ const Rednot = (props: Props): JSX.Element => {
         in
         key={n.id}
         classNames={componentClassName}
-        timeout={timeout}
+        timeout={timeout || 600}
       >
-        {innerComponent}
+        <div ref={nodeRef}>{innerComponent}</div>
       </CSSTransition>
     );
   });
